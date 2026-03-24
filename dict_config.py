@@ -1,17 +1,14 @@
 print('*' * 25)
 
 
-class User:
-    def __init__(self, group: str):
-        self.group = group
+from collections import defaultdict
 
+counts = defaultdict(int)
+fruits = ['apple', 'orange', 'apple', 'banana', 'apple']
 
-user = User('admin')
-group_to_process_method = {
-    'admin': process_admin_request,
-    'manager': process_manager_request,
-    'client': process_client_request,
-    'anon': process_anon_request,
-}
+for item in fruits:
+    counts[item] += 1
 
-print(group_to_process_method[user.group](user, request))
+print(counts)
+# Output: defaultdict(<class 'int'>, {'apple': 3, 'orange': 1, 'banana': 1})
+
